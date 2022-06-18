@@ -1,4 +1,4 @@
-import { loadEnv as loadEnvFile, PluginOption } from 'vite'
+import { PluginOption } from 'vite'
 import * as path from 'path'
 import * as fs from 'fs'
 
@@ -38,11 +38,8 @@ const loadPackageConfig = (envMap: EnvMap) => {
     return
   }
 
-  return import(pkgPath)
-    .then(pkg => {
-      setLineConfig(envMap, pkg['vite-env'])
-    })
-    .catch(() => null)
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'))
+  setLineConfig(envMap, pkg['vite-env'])
 }
 
 const setLineConfig = (envMap: EnvMap, lineEnv: SetEnvPluginConfig['env']) => {
@@ -86,8 +83,8 @@ export default function ViteEnvConfigPlugin(
       }
 
       const envMap = new Map()
-      await loadPathEnvFile(envMap, loadPath)
-      await loadPackageConfig(envMap)
+      await loadPathEnvFile(envMap, loadPath).catch(() => null)
+      loadPackageConfig(envMap)
       setLineConfig(envMap, env)
 
       const activeEnvConfig = envMap.get(mode)
