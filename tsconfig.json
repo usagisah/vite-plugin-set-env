@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "es2018",
+    "module": "ESNext",
+    "target": "ESNext",
     "removeComments": true,
     "declarationMap": true,
     "declaration": true,
     "sourceMap": true,
-    "moduleResolution": "node",
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "outDir": "dist",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "lib": [
       "es2018",
@@ -20,7 +20,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.mts"
   ],
   "exclude": [
     "node_modules",
