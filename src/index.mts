@@ -1,6 +1,6 @@
 import { PluginOption } from 'vite'
-import * as path from 'path'
-import * as fs from 'fs'
+import path from 'path'
+import fs from 'fs'
 
 export interface SetEnvPluginConfig {
   envPrefix?: string
@@ -10,6 +10,9 @@ export interface SetEnvPluginConfig {
 type EnvMap = Map<string, Record<string, string>>
 
 const root = process.cwd()
+const normalizeURL = (url: string) => {
+  return process.platform === "win32" ? `/${url.replace(/\\/g, "/")}` : url
+}
 
 const loadPathEnvFile = (
   envMap: EnvMap,
@@ -26,7 +29,7 @@ const loadPathEnvFile = (
         return
       }
 
-      const fileConfig = await import(pp)
+      const fileConfig = await import(normalizeURL(pp))
       setLineConfig(envMap, fileConfig.default)
     })
   )

@@ -6,15 +6,17 @@ specifiers:
   vite: ^2.9.12
 
 dependencies:
-  '@types/node': 18.0.0
   typescript: 4.7.4
   vite: 2.9.12
+
+devDependencies:
+  '@types/node': 18.0.0
 
 packages:
 
   /@types/node/18.0.0:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
-    dev: false
+    dev: true
 
   /esbuild-android-64/0.14.45:
     resolution: {integrity: sha512-krVmwL2uXQN1A+Ci4u2MR+Y0IAvQK0u3no5TsgguHVhTy138szjuohScCGjkpvLCpGLk7P4kFP1LKuntvJ0d4A==}
