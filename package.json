@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-set-env",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "用于便捷设置vite的环境变量",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
